@@ -8,38 +8,41 @@ and open the template in the editor.
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
-    
+
     <head>
-        <title>TODO supply a title</title>
+        <title>#{msg['title']}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </head>
     <body>
+        #{msg['greeting']}
         <h:dataTable value="#{peopleListBean.peopleList}" var="pl">
             <h:column>
-                <f:facet name="header">#{msg['peopleList.id']}</f:facet>
-                #{pl.id}
+                <f:facet name="header">#{msg['id']}</f:facet>
+                    #{pl.id}
             </h:column>
             <h:column>
-                <f:facet name="header">Prenom</f:facet>
-                #{pl.firstName}
+                <f:facet name="header">#{msg['firstName']}</f:facet>
+                    #{pl.firstName}
             </h:column>
             <h:column>
-                <f:facet name="header">Nom</f:facet>
-                #{pl.lastName}
+                <f:facet name="header">#{msg['lastName']}</f:facet>
+                    #{pl.lastName}
             </h:column>
             <h:column>
-                <f:facet name="header">Genre</f:facet>
-                #{pl.gender}
+                <f:facet name="header">#{msg['gender']}</f:facet>
+                    #{pl.gender}
             </h:column>
             <h:column>
-                <f:facet name="header">Anni</f:facet>
-                #{pl.birthDate}
+                <f:facet name="header">#{msg['birthdate']}</f:facet>
+                <h:outputText value="#{pl.birthDate}">
+                    <f:convertDateTime pattern="dd.MM.yyyy" />
+                </h:outputText>
             </h:column>
             <h:column>
-                <f:facet name="header">Marrie</f:facet>
-                #{pl.married}
+                <f:facet name="header">#{msg['married']}</f:facet>
+                    #{pl.married}
             </h:column>
         </h:dataTable>
-        
+
     </body>
 </html>

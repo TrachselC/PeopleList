@@ -3,12 +3,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html">
     <h:head>
-        <title>Facelet Title</title>
+        <title>#{msg['title']}</title>
     </h:head>
     <h:body>
-        <p>Gestion personnes</p>
+        #{msg['greeting']}
         <h:form>
-        <h:commandButton value="Afficher personnes" action="listPeople.xhtml"/>
+            <h:commandButton action="listPeople.xhtml" value="#{msg['print']}"/>
         </h:form>
     </h:body>
 </html>
