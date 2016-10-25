@@ -38,7 +38,7 @@ public class Person {
         return lastName;
     }
 
-    public Boolean isMarried() {
+    public Boolean getMarried() {
         return married;
     }
 

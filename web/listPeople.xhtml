@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    
+    <head>
+        <title>TODO supply a title</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+    <body>
+        <h:dataTable value="#{peopleListBean.peopleList}" var="pl">
+            <h:column>
+                <f:facet name="header">#{msg['peopleList.id']}</f:facet>
+                #{pl.id}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Prenom</f:facet>
+                #{pl.firstName}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Nom</f:facet>
+                #{pl.lastName}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Genre</f:facet>
+                #{pl.gender}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Anni</f:facet>
+                #{pl.birthDate}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Marrie</f:facet>
+                #{pl.married}
+            </h:column>
+        </h:dataTable>
+        
+    </body>
+</html>
