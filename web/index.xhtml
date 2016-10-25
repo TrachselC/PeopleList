@@ -7,8 +7,11 @@
     </h:head>
     <h:body>
         #{msg['greeting']}
+        <h1>#{msg['purpose']}</h1>
         <h:form>
             <h:commandButton action="listPeople.xhtml" value="#{msg['print']}"/>
+            <p/>
+            <h:commandButton action="addPerson.xhtml" value="#{msg['add']}"/>
         </h:form>
     </h:body>
 </html>

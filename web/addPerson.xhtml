@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>#{msg['title']}</title>
+    </h:head>
+    <h:body>
+        #{msg['greeting']}
+        <h1>#{msg['add']}</h1>
+        <p/>
+        <h:form>
+            <label>#{msg['firstName']} </label><h:inputText value="#{peopleAddBean.firstName}"/>
+            <p/>
+            <label>#{msg['lastName']} </label><h:inputText value="#{peopleAddBean.lastName}"/>
+            <p/>
+            <label>#{msg['birthdate']} </label><h:inputText value="#{peopleAddBean.birthDate}"><f:convertDateTime pattern="dd.MM.yyyy"/></h:inputText>
+            <p/>
+            <label>#{msg['gender']} </label><h:inputText value="#{peopleAddBean.gender}"/>
+            <p/>
+            <label>#{msg['married']} </label><h:inputText value="#{peopleAddBean.married}"/>
+            <p/>
+
+            <h:commandButton action="#{peopleAddBean.addPerson()}" value="#{msg['add']}"/>
+              
+            <h:commandButton action="index.xhtml" value="#{msg['index']}"/>
+        </h:form>
+    </h:body>
+</html>
