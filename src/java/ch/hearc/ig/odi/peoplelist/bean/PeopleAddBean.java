@@ -5,6 +5,7 @@
  */
 package ch.hearc.ig.odi.peoplelist.bean;
 
+import ch.hearc.ig.odi.peoplelist.business.Person;
 import ch.hearc.ig.odi.peoplelist.service.Services;
 import java.util.Date;
 import javax.inject.Named;
@@ -17,13 +18,8 @@ import javax.inject.Inject;
  */
 @Named(value = "peopleAddBean")
 @RequestScoped
-public class PeopleAddBean{
+public class PeopleAddBean extends Person{
     
-    private String gender;
-    private String firstName;
-    private String lastName;
-    private Boolean married;
-    private Date birthDate;
     
     @Inject
     Services service;
@@ -34,48 +30,8 @@ public class PeopleAddBean{
     public PeopleAddBean() {
     }
 
-    public String getGender() {
-        return gender;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public Boolean getMarried() {
-        return married;
-    }
-
-    public Date getBirthDate() {
-        return birthDate;
-    }
-
     public Services getService() {
         return service;
-    }
-
-    public void setGender(String gender) {
-        this.gender = gender;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public void setMarried(Boolean married) {
-        this.married = married;
-    }
-
-    public void setBirthDate(Date birthDate) {
-        this.birthDate = birthDate;
     }
 
     public void setService(Services service) {
@@ -83,7 +39,7 @@ public class PeopleAddBean{
     }
     
     public String addPerson(){
-        service.savePerson(gender, firstName, lastName, married, birthDate);
+        service.savePerson(this.getGender(), this.getFirstName(), this.getLastName(), this.getMarried(), this.getBirthDate());
         return "index.xhtml";
     }
     
