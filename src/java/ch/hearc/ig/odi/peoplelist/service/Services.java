@@ -120,6 +120,11 @@ public class Services implements Serializable{
         return currentMaxId;
     }
     
+    public Long deletePerson(Long id){
+        
+        return new Long(1);
+    }
+    
     public Person getPerson(Long id){
         return people.get(id);
     }

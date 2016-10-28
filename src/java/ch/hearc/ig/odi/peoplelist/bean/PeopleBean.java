@@ -16,18 +16,19 @@ import javax.inject.Inject;
  *
  * @author chloe.trachsel
  */
-@Named(value = "peopleAddBean")
+@Named(value = "peopleBean")
 @RequestScoped
-public class PeopleAddBean extends Person{
+public class PeopleBean extends Person{
     
     
     @Inject
     Services service;
     
+    private Person personToDelete;
     /**
      * Creates a new instance of PeopleAddBean
      */
-    public PeopleAddBean() {
+    public PeopleBean() {
     }
 
     public Services getService() {
@@ -37,9 +38,22 @@ public class PeopleAddBean extends Person{
     public void setService(Services service) {
         this.service = service;
     }
+
+    public Person getPersonToDelete() {
+        return personToDelete;
+    }
+
+    public void setPersonToDelete(Person personToDelete) {
+        this.personToDelete = personToDelete;
+    }
     
     public String addPerson(){
         service.savePerson(this.getGender(), this.getFirstName(), this.getLastName(), this.getMarried(), this.getBirthDate());
+        return "index.xhtml";
+    }
+    
+    public String deletePerson(){
+        service.deletePerson(this.getId());
         return "index.xhtml";
     }
     
