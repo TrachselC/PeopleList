@@ -20,7 +20,7 @@ and open the template in the editor.
                 <f:selectItems value="#{peopleBean.service.peopleList}" var="person" itemLabel="#{person.firstName}#{person.lastName}"/>
 
             </h:selectOneMenu>
-            <h:commandButton action="peopleBean.deletePerson()" value="#{msg['delete']}"/>
+            <h:commandButton action="#{peopleBean.deletePerson()}" value="#{msg['delete']}"/>
             <p/>
         </h:form>
         <h:form>

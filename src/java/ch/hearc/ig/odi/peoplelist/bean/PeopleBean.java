@@ -29,6 +29,7 @@ public class PeopleBean extends Person{
      * Creates a new instance of PeopleAddBean
      */
     public PeopleBean() {
+        super();
     }
 
     public Services getService() {
@@ -53,7 +54,7 @@ public class PeopleBean extends Person{
     }
     
     public String deletePerson(){
-        service.deletePerson(this.getId());
+        service.deletePerson(personToDelete);
         return "index.xhtml";
     }
     
