@@ -17,22 +17,25 @@ and open the template in the editor.
         <p/>
         <h:form>
             <label>#{msg['gender']}</label>
-            <h:selectOneMenu value="#{peopleBean.gender}"> 
+            <h:selectOneMenu value="#{peopleBean.gender}" required="true" requiredMessage="#{msg['genderRequired']}"> 
                  <f:selectItem itemValue="male" itemLabel="M." /> 
                  <f:selectItem itemValue="female" itemLabel="Mme." />	   							 
              </h:selectOneMenu><br/> 
              <p/>
-            <label>#{msg['firstName']} </label><h:inputText value="#{peopleBean.firstName}"/>
+             <label>#{msg['firstName']} </label><h:inputText value="#{peopleBean.firstName}" required="true" requiredMessage="#{msg['firstNameRequired']}"/>
             <p/>
-            <label>#{msg['lastName']} </label><h:inputText value="#{peopleBean.lastName}"/>
+            <label>#{msg['lastName']} </label><h:inputText value="#{peopleBean.lastName}" required="true" requiredMessage="#{msg['lastNameRequired']}"/>
             <p/>
-            <label>#{msg['birthdate']} </label><h:inputText value="#{peopleBean.birthDate}"><f:convertDateTime pattern="dd.MM.yyyy"/></h:inputText>
+            <label>#{msg['birthdate']} </label><h:inputText value="#{peopleBean.birthDate}" required="true" requiredMessage="#{msg['birthDateRequired']}"><f:convertDateTime pattern="dd.MM.yyyy"/></h:inputText>
             <p/>
-            <label>#{msg['married']} </label><h:inputText value="#{peopleBean.married}"/>
+            <label>#{msg['married']} </label><h:inputText value="#{peopleBean.married}" required="true" requiredMessage="#{msg['marriedRequired']}"/>
             <p/>
 
             <h:commandButton action="#{peopleBean.addPerson()}" value="#{msg['add']}"/>
               
+            
+        </h:form>
+        <h:form>
             <h:commandButton action="index.xhtml" value="#{msg['index']}"/>
         </h:form>
     </h:body>
