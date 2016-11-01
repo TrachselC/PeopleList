@@ -7,13 +7,18 @@ and open the template in the editor.
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
-    <head>
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
         <title>#{msg['title']}</title>
-    </head>
-    <body>
+    </h:head>
+    <h:body>
+         <ui:composition template="/main.xhtml">
+             <ui:define name="top">
         #{msg['greeting']}
         <h1>#{msg['delete']}</h1>
+        </ui:define>
+             <ui:define name="content">
         <h:form>
             <h:selectOneMenu id="lovPerson" value="#{peopleBean.personToDelete}">
                 <f:converter binding="#{personLOVConverter}" />
@@ -23,8 +28,12 @@ and open the template in the editor.
             <h:commandButton action="#{peopleBean.deletePerson()}" value="#{msg['delete']}"/>
             <p/>
         </h:form>
+                 </ui:define>
+             <ui:define name="bottom">
         <h:form>
             <h:commandButton action="index.xhtml" value="#{msg['index']}"/>
         </h:form>
-    </body>
+                 </ui:define>
+         </ui:composition>
+    </h:body>
 </html>
